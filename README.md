@@ -26,9 +26,9 @@ A few notes:
 
 | SPL | KQL | Remarks |  Ref/Doc |
 | --- | --- | --- | --- |
-|<pre>table <field(s)></pre> | <pre>project <field(s)></pre> | This [operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries) can also evaluate/calculate new values (more below). In gerenal, fields = columns and multiple parameters usually are separated by comma (,). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
+|<pre>table <field(s)></pre> | <pre>project <field(s)></pre> | Multiple columns are separated by comma (,). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
 |<pre>fields - <field(s)></pre> | <pre>project-away <field(s)></pre> | Also consider [`project-keep`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/project-keep-operator). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
-|<pre>rename source_addr AS src_ip</pre> | <pre>project-rename source_addr = src_ip</pre> | I haven't figured out how to use wildcards (multiple column renaming). Also check [this](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/rename-column#rename-columns). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
+|<pre>rename source_addr AS src_ip</pre> | <pre>project-rename source_addr = src_ip</pre> | I haven't figured out how to use wildcards. Also check [this](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/rename-column#rename-columns). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
 |<pre>search OS="*win*"</pre>| <pre>where OS contains "win"</pre> | Also consider [`search`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/searchoperator). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
 |<pre>where OS="Windows 10"</pre>| <pre>where OS=="Windows 10"</pre> | Case sensitive 
 |<pre>search OS="windows 10"</pre>| <pre>where OS=~"windows 10"</pre> | Case insensitive 
