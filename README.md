@@ -34,7 +34,7 @@ A few notes:
 |<pre>search OS="windows 10"</pre>| <pre>where OS=~"windows 10"</pre> | Case insensitive 
 |<pre>search OS IN ("windows", "linux")</pre>| <pre>where OS in~ ("windows", "linux")</pre> | Case insensitive full-match (implied OR operation)
 |<pre>where match(OS, "<regex>")</pre>| <pre>where OS matches regex "<regex>"</pre> | Complies with re2 https://github.com/google/re2/wiki/Syntax
-|<pre>eval mshake = milk."+".fruit</pre>| <pre>extend mshake = strcat(milk + "+" fruit)</pre> | Many more string operators [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators) | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
+|<pre>eval shake = milk."+".fruit</pre>| <pre>extend shake = strcat(milk + "+" fruit)</pre> | Many more string operators [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators) | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 |<pre>eval sum = num1 + num2</pre>| <pre>extend sum = num1 + num2</pre> | Also consider understanding [`let`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement) statement
 |<pre>base search<br>\| top 5 State</pre>| <pre>StormEvents<br>\| summarize c=count() by State<br>\| top-hitters 5 of State by c</pre>| A combination of `summarize`, `sort` and `take`is also possible here | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tophittersoperator)
 
