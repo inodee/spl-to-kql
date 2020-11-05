@@ -21,7 +21,7 @@ SPL Quick Reference doc can be found [here](https://docs.splunk.com/Documentatio
 
 A few notes:
 * In SPL we usually refer to _fields_ instead of _columns_. In KQL docs there are many references similar to SQL lang.
-* In SPL, every _command_ starts with a pipe (|). In KQL, each filter prefixed by the pipe is an instance of an [operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries), with some parameters.
+* In SPL, every _command_ starts with a pipe (|). In KQL, each filter prefixed by the pipe is an instance of an [operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries).
 * Aforementioned pipe char (SPL's command prefix) is suppressed from the table below for simplicity, except for multi-line examples.
 
 | SPL | KQL | Remarks |  Ref/Doc |
