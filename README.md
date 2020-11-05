@@ -26,15 +26,15 @@ A few notes:
 
 | SPL | KQL | Remarks |  Ref/Doc |
 | --- | --- | --- | --- |
-|`table <field(s)>` | `project <field(s)>` | This [operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries) can also evaluate/calculate new values (more below). In gerenal, fields = columns and multiple parameters usually are separated by comma (,). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
-|`fields - <field(s)>` | `project-away <field(s)>` | Also consider [`project-keep`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/project-keep-operator). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
-|`rename source_addr AS src_ip` | `project-rename source_addr = src_ip` | I haven't figured out how to use wildcards (multiple column renaming). Also check [this](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/rename-column#rename-columns). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
-|`search OS="*win*"`| `where OS contains "win"` | Also consider [`search`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/searchoperator). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
-|`where OS="Windows 10"`| `where OS=="Windows 10"` | Case sensitive 
-|`search OS="windows 10"`| `where OS=~"windows 10"` | Case insensitive 
-|`search OS IN ("windows", "linux")`| `where OS in~ ("windows", "linux")` | Case insensitive full-match (implied OR operation)
-|`where match(OS, "<regex>")`| `where OS matches regex "<regex>"` | Complies with re2 https://github.com/google/re2/wiki/Syntax
-|`eval mshake = milk."+".fruit`| `extend mshake = strcat(milk + "+" fruit)` | Many more string operators [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators) | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
-|`eval sum = num1 + num2`| `extend sum = num1 + num2` | Also consider understanding [`let`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement) statement
+|<pre>table <field(s)></pre> | <pre>project <field(s)></pre> | This [operator](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries) can also evaluate/calculate new values (more below). In gerenal, fields = columns and multiple parameters usually are separated by comma (,). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator)
+|<pre>fields - <field(s)></pre> | <pre>project-away <field(s)></pre> | Also consider [`project-keep`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/project-keep-operator). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectawayoperator)
+|<pre>rename source_addr AS src_ip</pre> | <pre>project-rename source_addr = src_ip</pre> | I haven't figured out how to use wildcards (multiple column renaming). Also check [this](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/rename-column#rename-columns). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/projectrenameoperator)
+|<pre>search OS="*win*"`| <pre>where OS contains "win"</pre> | Also consider [`search`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/searchoperator). | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/whereoperator)
+|<pre>where OS="Windows 10"`| <pre>where OS=="Windows 10"</pre> | Case sensitive 
+|<pre>search OS="windows 10"`| <pre>where OS=~"windows 10"</pre> | Case insensitive 
+|<pre>search OS IN ("windows", "linux")`| <pre>where OS in~ ("windows", "linux")</pre> | Case insensitive full-match (implied OR operation)
+|<pre>where match(OS, "<regex>")`| <pre>where OS matches regex "<regex>"</pre> | Complies with re2 https://github.com/google/re2/wiki/Syntax
+|<pre>eval mshake = milk."+".fruit`| <pre>extend mshake = strcat(milk + "+" fruit)</pre> | Many more string operators [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators) | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
+|<pre>eval sum = num1 + num2`| <pre>extend sum = num1 + num2</pre> | Also consider understanding [`let`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement) statement
 |<pre>base search<br>\| top 5 State</pre>| <pre>StormEvents<br>\| summarize c=count() by State<br>\| top-hitters 5 of State by c</pre>| A combination of `summarize`, `sort` and `take`is also possible here | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tophittersoperator)
 
