@@ -36,4 +36,5 @@ A few notes:
 |`where match(OS, "<regex>")`| `where OS matches regex "<regex>"` | Complies with re2 https://github.com/google/re2/wiki/Syntax
 |`eval mshake = milk."+".fruit`| `extend mshake = strcat(milk + "+" fruit)` | Many more string operators [here](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators) | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/extendoperator)
 |`eval sum = num1 + num2`| `extend sum = num1 + num2` | Also consider understanding [`let`](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/letstatement) statement
-|`base search`<br>`\| top 5 State`|`StormEvents`<br>`\| summarize c=count() by State`<br>`\| top-hitters 5 of State by c` | A combination of `summarize`, `sort` and `take`is also possible here | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tophittersoperator)
+|<pre>base search<br>\| top 5 State</pre>| <pre>StormEvents<br>\| summarize c=count() by State<br>\| top-hitters 5 of State by c</pre>| A combination of `summarize`, `sort` and `take`is also possible here | [Doc](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tophittersoperator)
+
